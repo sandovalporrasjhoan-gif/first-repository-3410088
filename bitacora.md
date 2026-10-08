@@ -26,3 +26,7 @@ rta: lo que sucede al buscar esto es que sale que el sitio no existe o esta bloq
 Enrutamiento: Resuelto. Express lo simplifica con métodos claros (app.get(), app.post()) y parámetros dinámicos (:id).
 Manejo de respuestas: Resuelto. Con res.json() y res.send() los headers y la conversión a JSON son automáticos.
 Lectura del body: Sigue igual. Express sigue requiriendo configurar middlewares (app.use(express.json())), de lo contrario req.body es undefined
+
+*p4 Comenta la línea next(); y pide / en el navegador. ¿Qué ves en el navegador? ¿Qué ves en la*
+*terminal? Cuando termines, vuelve a activar next();.*
+ rta: lo que sucede es que al quitar el next del codigo la pagina se queda cargando infinitamente y al añadirlo vuelve a la normalidad, tambien cuando se escribe una ruta nueva se muestra en el navegador cannot la peticion y la ruta que se escribio.
