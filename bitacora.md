@@ -27,6 +27,21 @@ Enrutamiento: Resuelto. Express lo simplifica con métodos claros (app.get(), ap
 Manejo de respuestas: Resuelto. Con res.json() y res.send() los headers y la conversión a JSON son automáticos.
 Lectura del body: Sigue igual. Express sigue requiriendo configurar middlewares (app.use(express.json())), de lo contrario req.body es undefined
 
-*p4 Comenta la línea next(); y pide / en el navegador. ¿Qué ves en el navegador? ¿Qué ves en la*
+*p5 Comenta la línea next(); y pide / en el navegador. ¿Qué ves en el navegador? ¿Qué ves en la*
 *terminal? Cuando termines, vuelve a activar next();.*
  rta: lo que sucede es que al quitar el next del codigo la pagina se queda cargando infinitamente y al añadirlo vuelve a la normalidad, tambien cuando se escribe una ruta nueva se muestra en el navegador cannot la peticion y la ruta que se escribio.
+
+ *P6  escríbela en tu bitácora ANTES de ejecutar*
+*Pides GET /actividades/1. La actividad con id 1 sí existe. ¿Qué código de estado y qué body vas a*
+*recibir?*
+*Pista para cuando ejecutes: mira lo que imprime console.log('params:', req.params). ¿El 1*
+*aparece con comillas o sin comillas?*
+rta: El 1 aparece con comillas (es decir, como un string o texto: '1'). Esto se debe a que Express siempre captura los parámetros de la URL como cadenas de texto. Por esa razón, en el código es estrictamente necesario hacer la conversión con Number(req.params.id) para que la comparación estricta (===) del .find() funcione correctamente con los números de tu arreglo.
+*p7 En la versión corregida, borra la palabra return que está antes de res.status(404) y pide*
+*/actividades/99. ¿Qué recibe el cliente? ¿Qué aparece en la terminal? Después vuelve a poner el*
+*return.*
+rta: lo que ve el cliente  "mensaje": "No existe la actividad con id 99" y en la terminal se ve  5:01:05 p. m. GET /actividades/99
+
+*p8Predice el resultado de estas tres peticiones: ?tipo=agua, ?tipo=AGUA y ?tipo=fuego. Para la*
+*última: ¿debería responder 404 o 200 con una lista vacía? Defiende tu respuesta.*
+rta: lo que sucede es que se van a filtrar ahora tambien por el tipo de agua y el tipo de fuego sale error 404 en el caso de AGUA tampoco se va a encontrar.
