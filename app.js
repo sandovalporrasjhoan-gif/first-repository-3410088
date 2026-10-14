@@ -22,6 +22,8 @@ console.log('Escuchando en http://localhost:3000');
 const express = require('express');
 const app = express();
 
+app.use(express.json());
+
 app.use((req, res, next ) => {
   console.log(`${new Date().toLocaleTimeString()} ${req.method} ${req.url}`);
   next();
@@ -67,6 +69,13 @@ app.get('/actividades/:id', (req, res) => {
   }
   res.json(actividad);
 
+});
+
+app.post('/actividades', (req, res) => {
+console.log('Body recibido:', req.body);
+const nueva = { id: actividades.length + 1, ...req.body };
+actividades.push(nueva);
+res.status(201).json(nueva);
 });
 
 app.listen(PORT, () => {

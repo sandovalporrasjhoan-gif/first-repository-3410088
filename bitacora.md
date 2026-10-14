@@ -45,3 +45,11 @@ rta: lo que ve el cliente  "mensaje": "No existe la actividad con id 99" y en la
 *p8Predice el resultado de estas tres peticiones: ?tipo=agua, ?tipo=AGUA y ?tipo=fuego. Para la*
 *última: ¿debería responder 404 o 200 con una lista vacía? Defiende tu respuesta.*
 rta: lo que sucede es que se van a filtrar ahora tambien por el tipo de agua y el tipo de fuego sale error 404 en el caso de AGUA tampoco se va a encontrar.
+
+*¿Qué código de estado y qué body vas a recibir? ¿Qué va a imprimir console.log('Body*
+*recibido:', req.body) en la terminal?*
+rta: recibo el codigo de estado 201 y el body que llega es {  "id": 13 }, imprime la peticion que dice lo siguiente: 1:28:00 p. m. POST /actividades Body recibido: undefined 
+
+*Haz cualquier cambio en app.js y guarda (con --watch el servidor se reinicia solo). Vuelve a pedir*
+*GET /actividades. ¿Sigue estando la actividad que creaste?*
+los datos se van a guardar temporalmente en el servidor pero cuando se reinicie el servidor los datos guardados se borraran
