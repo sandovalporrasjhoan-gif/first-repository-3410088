@@ -53,3 +53,11 @@ rta: recibo el codigo de estado 201 y el body que llega es {  "id": 13 }, imprim
 *Haz cualquier cambio en app.js y guarda (con --watch el servidor se reinicia solo). Vuelve a pedir*
 *GET /actividades. ¿Sigue estando la actividad que creaste?*
 los datos se van a guardar temporalmente en el servidor pero cuando se reinicie el servidor los datos guardados se borraran
+
+*Mueve este bloque al inicio, justo después de express.json(), y pide GET /actividades. ¿Qué*
+*pasa? ¿Por qué? Después regrésalo al final.*
+
+lo que sucede es que el servidor no acepta ninguna de las otras rutas ya que al colocar el 404 arriba deja de leer ya que el express lee el odigo de arriba a abajo y si el 404 esta arriba no va a seguir leyendo
+
+**explicacion**
+Express evalúa los *middlewares* y rutas en el **orden** exacto en que fueron declarados, ejecutando el siguiente bloque cuando se invoca la función **next**.
